@@ -15,7 +15,7 @@ AI-powered autonomous ML experiment agent. Describe your experiment in natural l
 ## Installation
 
 ```bash
-git clone https://github.com/your-username/auto-ml-agent.git
+git clone https://github.com/genguck/auto-ml-agent.git
 cd auto-ml-agent
 pip install -e .
 ```
