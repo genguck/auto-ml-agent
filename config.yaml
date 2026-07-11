@@ -1,0 +1,52 @@
+agent:
+  llm_provider: anthropic
+  model: claude-3-sonnet-20240229
+  api_key_env: ANTHROPIC_API_KEY
+  max_tokens: 8192
+  temperature: 0.1
+
+environment:
+  conda_path: auto_ml_env
+  python_version: "3.10"
+  packages:
+    - pytorch
+    - torchvision
+    - transformers
+    - datasets
+    - scikit-learn
+    - matplotlib
+    - pandas
+
+monitor:
+  enabled: true
+  anomaly_detection:
+    enabled: true
+    threshold_overfitting: 0.3
+    threshold_stagnation: 5
+    threshold_loss_explosion: 10.0
+
+output:
+  base_dir: ./outputs
+  experiment_prefix: experiment
+
+notification:
+  enabled: true
+  channels:
+    desktop:
+      enabled: true
+    email:
+      enabled: false
+      smtp_server: smtp.example.com
+      smtp_port: 587
+      smtp_user: your_email@example.com
+      smtp_password_env: SMTP_PASSWORD
+      to_email: recipient@example.com
+    feishu:
+      enabled: false
+      webhook_url_env: FEISHU_WEBHOOK_URL
+    serverchan:
+      enabled: false
+      send_key_env: SERVERCHAN_SEND_KEY
+    bark:
+      enabled: false
+      device_key_env: BARK_DEVICE_KEY
